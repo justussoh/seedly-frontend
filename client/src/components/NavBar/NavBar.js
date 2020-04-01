@@ -16,7 +16,7 @@ class NavBar extends React.Component {
                 </Nav>
                 <Form inline>
                     <FormControl type="text" placeholder="Search for a topic or ask a question" className="mr-sm-2"/>
-                    <Button variant="outline-info">Search</Button>
+                    <Button variant="outline-info">Join</Button>
                 </Form>
             </Navbar>
         )
