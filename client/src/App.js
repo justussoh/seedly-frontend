@@ -1,14 +1,11 @@
 import React from "react";
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
 } from "react-router-dom";
-import Home from './components/Home/Home'
+import Questions from './components/Questions/Questions'
 import Header from "./components/Header/Header";
 import NavBar from './components/NavBar/NavBar'
 import './App.css';
-import {Container} from "react-bootstrap";
 
 function App() {
     return (
@@ -16,11 +13,7 @@ function App() {
             <Router>
                 <NavBar/>
                 <Header />
-                <Container fluid>
-                    <Switch>
-                        <Route exact path="/" component={Home}/>
-                    </Switch>
-                </Container>
+                <Questions />
             </Router>
         </React.Fragment>
     );
