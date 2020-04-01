@@ -28,5 +28,32 @@ app.get('/api/topic_list', (req, res) => {
         ] });
 });
 
+app.get('/api/status_list', (req, res) => {
+    res.send({ statuses: [
+            {
+                key:'recent_activity',
+                label: 'Recent Activity'
+            },
+            {
+                key: 'unanswered',
+                label:'Unanswered'
+            },
+            {
+                key:'trending',
+                label: 'Trending'
+            }
+        ] });
+});
+
+app.get('/api/questions', (req, res) => {
+    res.send({ questions: [
+            {
+                category:['milelion', 'stock_discussion'],
+                status:['recent_activity', 'unanswered'],
+                title:'Test'
+            }
+        ] });
+});
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
