@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import './CategoryComponent.css'
 
 class CategoryComponent extends React.Component {
 
@@ -22,10 +23,10 @@ class CategoryComponent extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='category-container'>
                 {this.state.labelsList.map((label, index)=>{
                     return (
-                        <h6 key={index}>{label}</h6>
+                        <div key={index} className='category-tag'>{label}</div>
                     )
                 })}
             </div>

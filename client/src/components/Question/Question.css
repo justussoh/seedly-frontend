@@ -1,0 +1,18 @@
+.question-title{
+    font-size: 16px;
+    font-weight: bold;
+    word-break: break-word;
+    margin-top: 15px !important;
+}
+
+.question-card {
+    background-color: white;
+    padding: 15px;
+    height: auto;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.time-text{
+    color: rgb(154, 161, 179);
+}

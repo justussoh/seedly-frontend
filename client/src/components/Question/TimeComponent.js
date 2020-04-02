@@ -31,8 +31,8 @@ class TimeComponent extends React.Component {
 
     render() {
         return (
-            <div>
-                <h6>Answered {this.getTimeString(this.props.timeAnswered)} ago</h6>
+            <div className='d-flex flex-column-reverse' >
+                <div className='time-text'>Answered {this.getTimeString(this.props.timeAnswered)} ago</div>
             </div>
         )
     }

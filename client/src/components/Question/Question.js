@@ -1,5 +1,6 @@
 import React from "react";
 import {Card} from "react-bootstrap"
+import './Question.css'
 import CategoryComponent from "./CategoryComponent";
 import AnswerComponent from "./AnswerComponent";
 import LikeComponent from "./LikeComponent";
@@ -13,10 +14,10 @@ class Question extends React.Component {
     render() {
         const {question} = this.props;
         return (
-            <Card>
+            <div className='question-card'>
                 <CategoryComponent topics={question.category}/>
-                <Card.Title>{question.title}</Card.Title>
-                <div>
+                <div className='question-title'>{question.title}</div>
+                <div className='d-flex'>
                     <UserComponent userId={question.userId}/>
                     <TimeComponent timeAnswered={question.answerTime} />
                 </div>
@@ -26,7 +27,7 @@ class Question extends React.Component {
                     <LikeComponent likes={question.likes}/>
                     <ShareButton/>
                 </div>
-            </Card>
+            </div>
         )
     }
 }
