@@ -2,7 +2,7 @@ import React from "react";
 import {
     BrowserRouter as Router,
 } from "react-router-dom";
-import Questions from './components/Questions/Questions'
+import QuestionsPage from './components/Questions/QuestionsPage'
 import Header from "./components/Header/Header";
 import NavBar from './components/NavBar/NavBar'
 import './App.css';
@@ -13,7 +13,7 @@ function App() {
             <Router>
                 <NavBar/>
                 <Header />
-                <Questions />
+                <QuestionsPage />
             </Router>
         </React.Fragment>
     );
