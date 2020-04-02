@@ -4,7 +4,7 @@ import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'
 class NavBar extends React.Component {
     render() {
         return (
-            <Navbar bg="light">
+            <Navbar bg="light" sticky='top'>
                 <Navbar.Brand href="/">
                     <img alt='logo' src={'/images/logo.png'} style={{height:40, width:'auto'}}/>
                 </Navbar.Brand>

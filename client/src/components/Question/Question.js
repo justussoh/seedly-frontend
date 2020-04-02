@@ -16,13 +16,13 @@ class Question extends React.Component {
         return (
             <div className='question-card'>
                 <CategoryComponent topics={question.category}/>
-                <div className='question-title'>{question.title}</div>
-                <div className='d-flex'>
+                <div className='question-title gutter-margin'>{question.title}</div>
+                <div className='d-flex gutter-margin'>
                     <UserComponent userId={question.userId}/>
                     <TimeComponent timeAnswered={question.answerTime}/>
                 </div>
-                <ContentComponent description={question.description}/>
-                <div className='d-flex flex-row justify-content-center'>
+                <ContentComponent description={question.description} className='gutter-margin'/>
+                <div className='d-flex flex-row justify-content-center '>
                     <AnswerComponent answer={question.answer}/>
                     <div className=' d-flex ml-auto align-items-center justify-content-center'>
                         <LikeComponent likes={question.likes}/>

@@ -1,5 +1,4 @@
 import React from "react";
-import {Card} from "react-bootstrap";
 import Truncate from 'react-truncate';
 
 class ContentComponent extends React.Component {
@@ -26,7 +25,7 @@ class ContentComponent extends React.Component {
 
     render() {
         return (
-            <Card.Text>
+            <div>
                 <Truncate
                     lines={!this.state.expanded && 3}
                     ellipsis={(
@@ -47,7 +46,7 @@ class ContentComponent extends React.Component {
                 {!this.state.truncated && this.state.expanded && (
                     <span> <a href='#' onClick={this.toggleLines}>(less)</a></span>
                 )}
-            </Card.Text>
+            </div>
         )
     }
 }

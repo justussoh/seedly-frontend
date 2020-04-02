@@ -25,6 +25,42 @@ app.get('/api/topic_list', (req, res) => {
             {
                 key: 'investments',
                 label: 'Investments'
+            },
+            {
+                key: 'insurance',
+                label: 'Insurance'
+            },
+            {
+                key: 'property',
+                label: 'Property'
+            },
+            {
+                key: 'credit_card',
+                label: 'Credit Card'
+            },
+            {
+                key: 'savings',
+                label: 'Savings'
+            },
+            {
+                key: 'lifestyle',
+                label: 'Lifestyle'
+            },
+            {
+                key: 'family',
+                label: 'Family'
+            },
+            {
+                key: 'retirement',
+                label: 'Retirement'
+            },
+            {
+                key: 'career',
+                label: 'Career'
+            },
+            {
+                key: 'cpf',
+                label: 'CPF'
             }
         ]
     });

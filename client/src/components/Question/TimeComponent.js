@@ -22,7 +22,7 @@ class TimeComponent extends React.Component {
         } else if (diff < MONTHS) {
             return `${Math.floor(diff / WEEKS)}w`
         } else if (diff < YEARS) {
-            return `${Math.floor(diff / MONTHS)}m`
+            return `${Math.floor(diff / MONTHS)}mth`
         } else{
             return `${Math.floor(diff / YEARS)}y`
 
