@@ -1,4 +1,5 @@
 import React from "react";
+import {withRouter} from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import './UserComponent.css'
 import axios from 'axios';
@@ -9,21 +10,36 @@ class UserComponent extends React.Component {
         user: {},
         levelLabel: '',
         avatar: '',
+        titleList:[],
     };
 
     componentDidMount() {
+        this.fetchTitle();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.state.user.userId !== this.props.userId){
+            this.fetchUser()
+        }
+    }
+
+    fetchUser = () => {
         axios.get(`/api/userId?userId=${this.props.userId}`)
             .then(res => {
                 const user = res.data.users[0];
-                axios.get(`/api/level_list`)
-                    .then(res => {
-                        const label = res.data.levels.filter(level => level.level === user.level);
-                        this.setState({levelLabel: label[0].label})
-                    });
-                this.setState({user: user, avatar: user.displayName[0]})
+                const label = this.state.titleList.filter(level => level.level === user.level);
+                this.setState({user: user, avatar: user.displayName[0], levelLabel:label[0].label})
             });
+    };
 
-    }
+    fetchTitle = () => {
+        axios.get(`/api/level_list`)
+            .then(res => {
+                const titleList = res.data.levels;
+                this.setState({titleList: titleList});
+                this.fetchUser();
+            });
+    };
 
     render() {
         return (
@@ -38,4 +54,4 @@ class UserComponent extends React.Component {
     }
 }
 
-export default UserComponent
+export default withRouter(UserComponent)

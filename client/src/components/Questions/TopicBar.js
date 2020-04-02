@@ -19,8 +19,7 @@ class TopicBar extends React.Component {
                             Topics</Nav.Item>
                         {this.props.topicList.map((topic, index) => {
                             return (
-
-                                <LinkContainer to={`/topic/${topic.key}`}>
+                                <LinkContainer to={`/topic/${topic.key}`} key={index}>
                                     <Nav.Item className='list-item list-item-text list-item-text-hover'>{topic.label}</Nav.Item>
                                 </LinkContainer>
                             )

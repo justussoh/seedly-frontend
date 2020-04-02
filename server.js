@@ -35,8 +35,8 @@ app.get('/api/topic_list', (req, res) => {
                 label: 'Property'
             },
             {
-                key: 'credit_card',
-                label: 'Credit Card'
+                key: 'credit_cards',
+                label: 'Credit Cards'
             },
             {
                 key: 'savings',
@@ -71,11 +71,11 @@ app.get('/api/level_list', (req, res) => {
         levels: [
             {
                 level: 1,
-                label: 'WonderKid'
+                label: 'Beginner'
             },
             {
                 level: 2,
-                label: 'WonderKid'
+                label: 'Rookie'
             },
             {
                 level: 3,
@@ -83,31 +83,31 @@ app.get('/api/level_list', (req, res) => {
             },
             {
                 level: 4,
-                label: 'WonderKid'
+                label: 'Prodigy'
             },
             {
                 level: 5,
-                label: 'WonderKid'
+                label: 'Genius'
             },
             {
                 level: 6,
-                label: 'WonderKid'
+                label: 'Master'
             },
             {
                 level: 7,
-                label: 'WonderKid'
+                label: 'Grandmaster'
             },
             {
                 level: 8,
-                label: 'WonderKid'
+                label: 'Wizard'
             },
             {
                 level: 9,
-                label: 'WonderKid'
+                label: 'God of Wisdom'
             },
             {
                 level: 10,
-                label: 'WonderKid'
+                label: 'Unicorn'
             },
 
 
@@ -136,22 +136,48 @@ app.get('/api/status_list', (req, res) => {
 
 app.get('/api/questions', (req, res) => {
     let now = new Date();
-    now.setMonth(now.getMonth() - 3);
+    now.setHours(now.getHours()-3);
     res.send({
         questions: [
             {
-                category: ['milelion', 'stock_discussion'],
+                category: ['investments', 'stock_discussion'],
                 status: ['recent_activity', 'unanswered'],
-                title: 'Test',
-                description: 'My thoughts too. However, I think it may be due to the fact that manicure, hair dressing, facial services are a want not a need. Probably that\'s why the government placed less emphasis on the particular sector. And as you mentioned, digital solutions are limited for such sector and Singapore is moving towards a digital future, they do thus have to prioritise their packages and budget.\n' +
+                title: 'Markets have been so volatile in the past weeks. How have the various robos in Singapore rebalanced portfolios?',
+                description: 'At Syfe, our portfolios are constructed to shield investors from significant losses, preserve the strength of their portfolios, and position them to capture the upside as the market makes its eventual recovery. Despite the volatility, our portfolios have remained resilient, with smaller dips in value as compared to the benchmarks and broader market: https://www.syfe.com/magazine/coronavirus-pandemic-how-syfe-builds-resilience-into-portfolios/\n' +
                     '\n' +
-                    'Overall, I think the recent package and initiative do benefit the whole Singapore regardless of sector. It is very much dependent on how you view the situation.\n' +
+                    'Simply put, our automated risk managed investing (ARI) algorithm had rebalanced portfolios to bring portfolio risk back in line with our investors\' chosen risk level. For our 15% Downside Risk portfolios, our timely adjustment to increase the share of lower-risk bonds resulted in a significantly smaller dip of 10%, compared to our benchmark\'s loss of 21%.\n' +
                     '\n' +
-                    'Here\'s my 2 cents worth of view point.',
-                answer: ['Answer 1', 'Answer 2'],
+                    'Our risk-based investing strategy ultimately delivers better risk-adjusted returns over the long term, and better peace of mind for our clients during this tumultuous period.',
+                answer: [],
                 answerTime: now,
                 userId: 1,
                 likes: [1, 2, 3],
+            },
+            {
+                category: ['investments', 'stock_discussion'],
+                status: ['recent_activity', 'trending'],
+                title: 'With this coronavirus hooha going on is it a bad time for me to start using StashAway?',
+                description: 'Just DCA weekly or monthly. Time in market > Timing the market.',
+                answer: ['Answer 1', 'Answer 2'],
+                answerTime: now,
+                userId: 2,
+                likes: [1],
+            },
+            {
+                category: ['milelion', 'credit_cards'],
+                status: ['recent_activity', 'trending', 'unanswered'],
+                title: 'If you receive a refund to a credit card but don\'t have an account with the card\'s issuing bank, where does the refunded money go?',
+                description: 'I usually get the refund when i buy stuff online and the item is returned and my money is refunded.\n' +
+                    '\n' +
+                    'Using DBS credit card, it will appear as CR beside that amount.\n' +
+                    '\n' +
+                    'The refunded amount will store as credit in your credit card account and will be used to offset your other expenses. Otherwise it will remain as credit until you spend money then that credit will become zero.\n' +
+                    '\n' +
+                    'I make videos about interesting stuff at youtube',
+                answer: [],
+                answerTime: now,
+                userId: 3,
+                likes: [1,2],
             }
         ]
     });
@@ -162,32 +188,29 @@ app.get('/api/userId', (req, res) => {
     let data = [
         {
             userId:1,
-            displayName:'Test 1',
+            displayName:'Justus Soh',
             level: 3,
         },
         {
             userId:2,
-            displayName:'Test 2',
+            displayName:'John Poh',
             level: 7,
         },
         {
             userId:3,
-            displayName:'Test 3',
+            displayName:'Sarah Chan',
             level: 10,
         },
     ];
 
-    if (req.query.user) {
-        let userId = req.query.user;
-        data = data.filter(user=>userId.userId === userId);
+    if (req.query.userId) {
+        let userId = parseInt(req.query.userId);
+        data = data.filter(user=>user.userId === userId);
     }
 
     res.send({
         users: data,
     });
 });
-
-
-
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

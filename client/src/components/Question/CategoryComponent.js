@@ -27,8 +27,8 @@ class CategoryComponent extends React.Component {
             <div className='category-container'>
                 {this.state.labelsList.map((label, index) => {
                     return (
-                        <LinkContainer to={`/topic/${label.key}`}>
-                            <div key={index} className='category-tag'>{label.label}</div>
+                        <LinkContainer to={`/topic/${label.key}`}  key={index}>
+                            <div className='category-tag'>{label.label}</div>
                         </LinkContainer>
                     )
                 })}

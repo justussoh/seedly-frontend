@@ -12,7 +12,7 @@ const YEARS = MONTHS * 12;
 class TimeComponent extends React.Component {
 
     getTimeString = (timeAnswered) => {
-        let diff = new Date() - Date.parse(timeAnswered);
+        let diff = Math.abs(new Date() - Date.parse(timeAnswered));
         if (diff < HOURS) {
             return `${Math.ceil(diff / MINUTES)}m`
         } else if (diff < DAYS) {
