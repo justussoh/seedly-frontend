@@ -1,10 +1,11 @@
 import React from "react";
 import axios from "axios";
+import {LinkContainer} from 'react-router-bootstrap'
 import './CategoryComponent.css'
 
 class CategoryComponent extends React.Component {
 
-    state={
+    state = {
         labelsList: []
     };
 
@@ -12,21 +13,23 @@ class CategoryComponent extends React.Component {
         axios.get(`/api/topic_list`)
             .then(res => {
                 const topicsList = res.data.topics;
-                const labelsList = this.props.topics.reduce((arr, topic)=>{
-                    const label = topicsList.filter(topicKey => topicKey.key === topic)[0].label;
+                const labelsList = this.props.topics.reduce((arr, topic) => {
+                    const label = topicsList.filter(topicKey => topicKey.key === topic)[0];
                     arr.push(label);
                     return arr
                 }, []);
-                this.setState({ labelsList:labelsList });
+                this.setState({labelsList: labelsList});
             })
     }
 
     render() {
         return (
             <div className='category-container'>
-                {this.state.labelsList.map((label, index)=>{
+                {this.state.labelsList.map((label, index) => {
                     return (
-                        <div key={index} className='category-tag'>{label}</div>
+                        <LinkContainer to={`/topic/${label.key}`}>
+                            <div key={index} className='category-tag'>{label.label}</div>
+                        </LinkContainer>
                     )
                 })}
             </div>

@@ -19,13 +19,15 @@ class Question extends React.Component {
                 <div className='question-title'>{question.title}</div>
                 <div className='d-flex'>
                     <UserComponent userId={question.userId}/>
-                    <TimeComponent timeAnswered={question.answerTime} />
+                    <TimeComponent timeAnswered={question.answerTime}/>
                 </div>
                 <ContentComponent description={question.description}/>
-                <div>
+                <div className='d-flex flex-row justify-content-center'>
                     <AnswerComponent answer={question.answer}/>
-                    <LikeComponent likes={question.likes}/>
-                    <ShareButton/>
+                    <div className=' d-flex ml-auto align-items-center justify-content-center'>
+                        <LikeComponent likes={question.likes}/>
+                        <ShareButton/>
+                    </div>
                 </div>
             </div>
         )

@@ -8,7 +8,7 @@ class ShareButton extends React.Component {
     render() {
         return (
             <IconButton>
-                <ShareOutlinedIcon/>
+                <ShareOutlinedIcon style={{marginRight:6, color:'#9AA1B3'}}/>
             </IconButton>
         )
     }

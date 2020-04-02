@@ -34,7 +34,15 @@ class ContentComponent extends React.Component {
                     )}
                     onTruncate={this.handleTruncate}
                 >
-                    {this.props.description}
+                    {this.props.description.split('\n').map((line, i, arr) => {
+                        let new_line = <span key={i}>{line}</span>;
+
+                        if (i === arr.length - 1) {
+                            return new_line;
+                        } else {
+                            return [new_line, <br key={i + 'br'} />];
+                        }
+                    })}
                 </Truncate>
                 {!this.state.truncated && this.state.expanded && (
                     <span> <a href='#' onClick={this.toggleLines}>(less)</a></span>
