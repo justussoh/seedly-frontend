@@ -24,12 +24,12 @@ class QuestionsPage extends React.Component {
 
     render() {
         return (
-            <Container fluid>
+            <Container>
                 <Row>
-                    <Col xs={2}>
+                    <Col xs={2} style={{padding:0}}>
                         <TopicBar topicList={this.state.topicList}/>
                     </Col>
-                    <Col xs={10}>
+                    <Col xs={10} style={{padding:0}}>
                         <Switch>
                             <Route exact path="/" component={Question}/>
                             <Route exact path="/topic/:topic" component={Question}/>

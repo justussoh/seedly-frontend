@@ -3,6 +3,7 @@ import {ListGroup, Container, Row} from "react-bootstrap";
 import {withRouter} from "react-router-dom";
 import axios from 'axios';
 import Question from "../Question/Question";
+import './Questions.css';
 
 class Questions extends React.Component {
 
@@ -69,22 +70,22 @@ class Questions extends React.Component {
         return (
             <Container>
                 <Row>
-                    <ListGroup horizontal>
+                    <div className='status-container'>
                         {
                             this.state.statusList.map((status, index) => {
                                 return (
-                                    <ListGroup.Item key={index}
+                                    <div key={index}
                                                     onClick={() => {
                                                         this.handleStatusClick(status.key)
                                                     }}
-                                                    active={this.state.currentStatus === status.key}
+                                                    className={this.state.currentStatus === status.key? 'status-text status-text-blue':'status-text status-text-gray'}
                                     >
                                         {status.label}
-                                    </ListGroup.Item>
+                                    </div>
                                 )
                             })
                         }
-                    </ListGroup>
+                    </div>
                 </Row>
                 <Row>
                     {filtered_questions.map((question, index) => {
